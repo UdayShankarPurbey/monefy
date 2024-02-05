@@ -1,0 +1,50 @@
+
+
+<app-chart [chartData]="data" (dataEvent)="receiveData($event)"></app-chart>
+
+
+<div class="container " *ngFor="let d of dispData">
+    <ul class="row bg-primary" *ngIf="d.TransactionType === 'income'">
+        <!-- <li class="col-md-1">
+            <mat-pseudo-checkbox (click) = checkedItem(d)></mat-pseudo-checkbox>
+            <input type="checkbox" [(ngModel)]="isChecked" (change)="toggleCheckbox()">
+
+        </li> -->
+
+        
+        <li class="col-md-3">{{d.TransactionType}}</li>
+        <li class="col-md-6">{{d.Date}}</li>
+        <li class="col-md-3">{{d.PaymentMethod}}</li>
+        <li class="col-md-4">{{d.Category}}</li>
+        <li class="col-md-5">{{d.Notes}}</li>
+        <li class="col-md-3" style="font-weight: bolder; color: aqua;">{{d.Amount}}</li>
+        <li class="col-md-3">
+            <span class="material-icons" (click)="editItem(d)" [class.green]="isEditMarked">edit</span>
+          </li>
+        <li class="col-md-3">
+            <span class="material-icons" (click)="deleteItem(d)" [class.red]="isDeletemarked">delete</span>
+          </li>
+        <li class="col-md-3">
+            <span class="material-icons" (click)="bookmarkItem(d)" [class.golden]="isBookmarked">bookmark</span>
+          </li>
+      </ul>
+      
+    <ul class="row bg-danger" *ngIf="d.TransactionType === 'expense'">
+        <li class="col-md-3">{{d.TransactionType}}</li>
+        <li class="col-md-6">{{d.Date}}</li>
+        <li class="col-md-3">{{d.PaymentMethod}}</li>
+        <li class="col-md-4">{{d.Category}}</li>
+        <li class="col-md-5">{{d.Notes}}</li>
+        <li class="col-md-3" style="font-weight: bolder; color: aqua;">{{d.Amount}}</li>
+        <li class="col-md-3">
+            <span class="material-icons" (click)="editItem(d)" [class.green]="isEditMarked">edit</span>
+          </li>
+        <li class="col-md-3">
+            <span class="material-icons" (click)="deleteItem(d)" [class.red]="isDeletemarked">delete</span>
+          </li>
+        <li class="col-md-3">
+            <span class="material-icons" (click)="bookmarkItem(d)" [class.golden]="isBookmarked">bookmark</span>
+          </li>
+    </ul>
+</div>
+

@@ -1,0 +1,140 @@
+<div class="container mt-4">
+    <h2>Add Transaction</h2>
+
+    <div class="form-group">
+        <label>{{ currentDate }}</label>
+      </div>
+  
+    <div class="form-group">
+      <label>
+        <input type="radio" name="transactionType" [(ngModel)]="transactionType" value="income"> Add Income
+      </label>
+      <label>
+        <input type="radio" name="transactionType" [(ngModel)]="transactionType" value="expense"> Add Expense
+      </label>
+    </div>
+  
+    
+    <div class="form-group">
+        <label>Payment Method:</label>
+        <mat-select class="form-control" [(ngModel)]="paymentMethod">
+          <mat-option value="cash">
+            <mat-icon>attach_money</mat-icon> Cash
+          </mat-option>
+          <mat-option value="creditCard">
+            <mat-icon>credit_card</mat-icon> Credit Card
+          </mat-option>
+          <mat-option value="debitCard">
+            <mat-icon>credit_card</mat-icon> Debit Card
+          </mat-option>
+        </mat-select>
+      </div>
+      
+  
+    <div class="form-group">
+      <label>Amount:</label>
+      <input class="form-control" type="number" [(ngModel)]="amount">
+    </div>
+  
+    
+    <div class="form-group">
+        <label > Category : </label>
+        <ng-container *ngIf="transactionType === 'income'; then ifBlock else elseBlock">
+        </ng-container>
+    </div>
+    
+    <ng-template #ifBlock>
+        <mat-select class="form-control" [(ngModel)]="selectedCategory">
+            <mat-option value="salary">
+                <mat-icon>attach_money</mat-icon> Salary
+              </mat-option>
+              <mat-option value="freelance">
+                <mat-icon>work</mat-icon> Freelance
+              </mat-option>
+              <mat-option value="business">
+                <mat-icon>business</mat-icon> Business
+              </mat-option>
+              <mat-option value="investments">
+                <mat-icon>trending_up</mat-icon> Investments
+              </mat-option>
+              <mat-option value="sideHustle">
+                <mat-icon>build</mat-icon> Side Hustle
+              </mat-option>
+              <mat-option value="bonuses">
+                <mat-icon>card_giftcard</mat-icon> Bonuses
+              </mat-option>
+              <mat-option value="gifts">
+                <mat-icon>redeem</mat-icon> Gifts
+              </mat-option>
+              <mat-option value="refunds">
+                <mat-icon>autorenew</mat-icon> Refunds
+              </mat-option>
+              <mat-option value="rentalIncome">
+                <mat-icon>home</mat-icon> Rental Income
+              </mat-option>
+              <mat-option value="royalties">
+                <mat-icon>attach_money</mat-icon> Royalties
+              </mat-option> 
+        </mat-select>         
+    </ng-template>
+
+    <ng-template #elseBlock>
+        <mat-select class="form-control" [(ngModel)]="selectedCategory">
+            <mat-option value="bills">
+                <mat-icon>attach_money</mat-icon> Bills
+              </mat-option>
+              <mat-option value="cars">
+                <mat-icon>directions_car</mat-icon> Cars
+              </mat-option>
+              <mat-option value="clothes">
+                <mat-icon>style</mat-icon> Clothes
+              </mat-option>
+              <mat-option value="communication">
+                <mat-icon>message</mat-icon> Communication
+              </mat-option>
+              <mat-option value="eatingout">
+                <mat-icon>local_dining</mat-icon> Eating out
+              </mat-option>
+              <mat-option value="entertainment">
+                <mat-icon>theaters</mat-icon> Entertainment
+              </mat-option>
+              <mat-option value="food">
+                <mat-icon>restaurant</mat-icon> Food
+              </mat-option>
+              <mat-option value="gifts">
+                <mat-icon>card_giftcard</mat-icon> Gifts
+              </mat-option>
+              <mat-option value="health">
+                <mat-icon>local_hospital</mat-icon> Health
+              </mat-option>
+              <mat-option value="house">
+                <mat-icon>home</mat-icon> House
+              </mat-option>
+              <mat-option value="pets">
+                <mat-icon>pets</mat-icon> Pets
+              </mat-option>
+              <mat-option value="sports">
+                <mat-icon>sports</mat-icon> Sports
+              </mat-option>
+              <mat-option value="taxi">
+                <mat-icon>local_taxi</mat-icon> Taxi
+              </mat-option>
+              <mat-option value="toiletry">
+                <mat-icon>bathtub</mat-icon> Toiletry
+              </mat-option>
+              <mat-option value="transport">
+                <mat-icon>commute</mat-icon> Transport
+              </mat-option>
+        </mat-select>
+    </ng-template>    
+
+    
+    <div class="form-group">
+      <label>Notes:</label>
+      <textarea class="form-control" [(ngModel)]="notes"></textarea>
+    </div>
+  
+    <button type="submit" class="btn btn-primary" (click)="saveTransaction()">Submit</button>
+  </div>
+  
+

@@ -1,0 +1,21 @@
+
+<nav>
+  <button class="btn btn-primary m-2 p-2 " (click) = "bySortByDate()">Sort By Date</button>
+  <button class="btn btn-primary m-2 p-2 " (click) = "byTransactionType()">Transaction Type</button>
+  <button class="btn btn-primary m-2 p-2 " (click) = "byPaymentMethod()">Payment Method</button>
+  <button class="btn btn-primary m-2 p-2 " (click) = "byAmount()">Amount</button>
+  <button class="btn btn-primary m-2 p-2 " (click) = "byCategory()">Category</button>
+  <button class="btn btn-primary m-2 p-2 " (click) = "downloadPdf()">Download Pdf</button>
+  <button class="btn btn-primary m-2 p-2 " (click) = "downloadExcel()">Download Excel</button>
+</nav>
+
+
+<ngx-charts-advanced-pie-chart
+  [results]="pieChart"
+  [view]="[900, 400]"
+  [scheme]="customColorScheme"
+>
+</ngx-charts-advanced-pie-chart>
+
+
+  
